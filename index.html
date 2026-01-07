@@ -2,109 +2,119 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>卒論執筆ライブ進捗</title>
-    <linkpreconnect="https://fonts.googleapis.com">
-    <linkpreconnect="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thesis Progress</title>
     <style>
-        /* 全体の設定：パステルカラーの背景と丸文字フォント */
+        /* 究極のシンプル：システムフォントのみ */
         body {
-            /* ふんわりしたピンクから水色のグラデーション */
-            background: linear-gradient(120deg, #fff1eb 0%, #ace0f9 100%);
-            color: #555555; /* 文字は真っ黒ではなく優しいグレー */
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            text-align: center;
-            padding: 30px 10px;
-            min-height: 100vh;
-            box-sizing: border-box;
+            margin: 0;
+            padding: 40px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
         }
 
-        /* メインの白いカード */
         .container {
-            max-width: 700px;
+            max-width: 600px;
             margin: 0 auto;
-            background: #ffffff;
-            /* 角をすごく丸くする */
-            border-radius: 30px;
-            /* ふわっとした柔らかい影 */
-            box-shadow: 0 15px 35px rgba(173, 216, 230, 0.3);
-            padding: 40px;
-            border: 3px solid #ffffff; /* 白い枠線で清潔感 */
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
-        /* タイトル */
         h1 {
-            color: #ff9a9e; /* パステルピンク */
-            font-size: 28px;
-            margin-bottom: 30px;
-            /* 文字に少しだけ白いフチをつけてポップに */
-            text-shadow: 2px 2px 0 #fff;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
         }
 
-        /* GOGHの情報エリア：付箋（ふせん）のようなデザイン */
-        .gogh-info {
-            background: #fff9c4; /* 淡い黄色（クリーム色） */
-            color: #795548; /* 優しい茶色の文字 */
-            padding: 20px;
-            margin: 30px auto;
-            border-radius: 15px;
-            /* 点線の枠でクラフト感を出す */
-            border: 3px dashed #ffe082;
-            display: inline-block; /* 中身に合わせて幅を調整 */
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
-            position: relative;
-        }
-        /* GOGHのルームIDを強調 */
-        .gogh-id-highlight {
-            font-weight: 700;
-            color: #ff7043;
-            font-size: 1.1em;
-            margin-top: 5px;
-            display: block;
+        section {
+            margin-bottom: 2.5rem;
         }
 
-        /* WakaTimeグラフエリア */
-        .wakatime-chart {
-            margin-top: 40px;
+        h2 {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #666;
+            margin-bottom: 1rem;
         }
-        .wakatime-chart h3 {
-            color: #81d4fa; /* パステルブルー */
-            margin-bottom: 15px;
+
+        /* GOGH ID 表示 */
+        .info-box {
+            background: #f0f0f0;
+            padding: 15px;
+            font-family: monospace;
+            font-size: 1.1rem;
+            text-align: center;
         }
-        /* グラフを埋め込む枠（はみ出し防止） */
-        .chart-wrapper {
-            border-radius: 15px;
+
+        /* 文字数表示（GitHub Actionsで自動更新される部分） */
+        .count-display {
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* WakaTimeグラフ */
+        .chart-container {
+            width: 100%;
             overflow: hidden;
-            /* グラフ自体にもうっすら角丸と影をつける */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 2px solid #f0f0f0;
+        }
+        embed {
+            width: 100%;
         }
 
-        /* フッターのバッジエリア */
-        .footer-badge {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px dashed #eee; /* 上に点線の区切り線 */
-            font-size: 13px;
-            color: #aaa;
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #999;
         }
-        /* バッジ画像を少しふわっとさせる */
-        .footer-badge img {
-            transition: transform 0.3s ease;
-            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.1));
-        }
-        .footer-badge img:hover {
-            transform: scale(1.05); /* マウスを乗せると少し大きくなる */
+
+        .badge-link {
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>卒論執筆中</h1>
-    
-    <div class="gogh-info">
-        <span style="font-size: 1.5em;">🎨</span><br>
-        <strong>GOGHで作業中<br>
-        <span class="gogh-id-highlight">Room ID: 10977524
+    <h1>Graduation Thesis Progress</h1>
+
+    <section>
+        <h2>Current Word Count</h2>
+        <div class="count-display">
+            0<span style="font-size: 1rem; font-weight: normal;">文字</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>Time Stats</h2>
+        <div class="chart-container">
+            <embed src="https://waka-time.com/share/@rizzle/2b5ac91e-1b7d-4a1f-a961-a0fefb1e90a6.svg"></embed>
+        </div>
+    </section>
+
+    <section>
+        <h2>GOGH Room ID</h2>
+        <div class="info-box">
+            109775244158321934
+        </div>
+    </section>
+
+    <footer>
+        <a class="badge-link" href="https://wakatime.com/badge/user/1a03b323-0370-43e6-ac12-f6aef2383c97/project/b371ba97-fa15-4f05-b46b-415415dcbc3a" target="_blank">
+            <img src="https://wakatime.com/badge/user/1a03b323-0370-43e6-ac12-f6aef2383c97/project/b371ba97-fa15-4f05-b46b-415415dcbc3a.svg" alt="wakatime badge">
+        </a>
+        <div>Auto-updated via GitHub Actions & WakaTime</div>
+    </footer>
+</div>
+
+</body>
+</html>
