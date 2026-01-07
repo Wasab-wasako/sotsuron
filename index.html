@@ -3,58 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <title>卒論執筆ライブ進捗</title>
+    <linkpreconnect="https://fonts.googleapis.com">
+    <linkpreconnect="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* 配信画面に映えるダークモード風デザイン */
+        /* 全体の設定：パステルカラーの背景と丸文字フォント */
         body {
-            background-color: #1a1a1a;
-            color: #ffffff;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
+            /* ふんわりしたピンクから水色のグラデーション */
+            background: linear-gradient(120deg, #fff1eb 0%, #ace0f9 100%);
+            color: #555555; /* 文字は真っ黒ではなく優しいグレー */
+            font-family: 'M PLUS Rounded 1c', sans-serif;
             text-align: center;
-            padding: 20px;
+            padding: 30px 10px;
+            min-height: 100vh;
+            box-sizing: border-box;
         }
+
+        /* メインの白いカード */
         .container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
-            border: 2px solid #333;
-            border-radius: 15px;
-            background: #252525;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: #ffffff;
+            /* 角をすごく丸くする */
+            border-radius: 30px;
+            /* ふわっとした柔らかい影 */
+            box-shadow: 0 15px 35px rgba(173, 216, 230, 0.3);
+            padding: 40px;
+            border: 3px solid #ffffff; /* 白い枠線で清潔感 */
         }
-        h1 { color: #00ffcc; font-size: 24px; }
+
+        /* タイトル */
+        h1 {
+            color: #ff9a9e; /* パステルピンク */
+            font-size: 28px;
+            margin-bottom: 30px;
+            /* 文字に少しだけ白いフチをつけてポップに */
+            text-shadow: 2px 2px 0 #fff;
+        }
+
+        /* GOGHの情報エリア：付箋（ふせん）のようなデザイン */
         .gogh-info {
-            background: #333;
-            padding: 10px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border-left: 5px solid #ff007b;
+            background: #fff9c4; /* 淡い黄色（クリーム色） */
+            color: #795548; /* 優しい茶色の文字 */
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 15px;
+            /* 点線の枠でクラフト感を出す */
+            border: 3px dashed #ffe082;
+            display: inline-block; /* 中身に合わせて幅を調整 */
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+            position: relative;
         }
+        /* GOGHのルームIDを強調 */
+        .gogh-id-highlight {
+            font-weight: 700;
+            color: #ff7043;
+            font-size: 1.1em;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* WakaTimeグラフエリア */
         .wakatime-chart {
-            margin-top: 20px;
-            filter: drop-shadow(0 0 5px #00ffcc); /* グラフを少し光らせる */
+            margin-top: 40px;
+        }
+        .wakatime-chart h3 {
+            color: #81d4fa; /* パステルブルー */
+            margin-bottom: 15px;
+        }
+        /* グラフを埋め込む枠（はみ出し防止） */
+        .chart-wrapper {
+            border-radius: 15px;
+            overflow: hidden;
+            /* グラフ自体にもうっすら角丸と影をつける */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 2px solid #f0f0f0;
+        }
+
+        /* フッターのバッジエリア */
+        .footer-badge {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px dashed #eee; /* 上に点線の区切り線 */
+            font-size: 13px;
+            color: #aaa;
+        }
+        /* バッジ画像を少しふわっとさせる */
+        .footer-badge img {
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.1));
+        }
+        .footer-badge img:hover {
+            transform: scale(1.05); /* マウスを乗せると少し大きくなる */
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>卒論執筆 リアルタイム進捗</h1>
+    <h1>卒論執筆中</h1>
     
     <div class="gogh-info">
-        <strong>現在 GOGH で作業中！</strong><br>
-        ルームID: <span>109775244158321934</span>
-    </div>
-
-    <div class="wakatime-chart">
-        <h3>今週の執筆時間</h3>
-        <figure><embed src="https://wakatime.com/share/@rizzle/50ecd8d3-d9d0-4efd-a2dd-a693cd50369f.svg"></embed></figure>
-    </div>
-
-    <p style="margin-top: 30px; font-size: 14px; color: #888;">
-        <a href="https://wakatime.com/badge/user/1a03b323-0370-43e6-ac12-f6aef2383c97/project/b371ba97-fa15-4f05-b46b-415415dcbc3a"><img src="https://wakatime.com/badge/user/1a03b323-0370-43e6-ac12-f6aef2383c97/project/b371ba97-fa15-4f05-b46b-415415dcbc3a.svg" alt="wakatime"></a>
-        ※自動更新
-    </p>
-</div>
-
-</body>
-</html>
+        <span style="font-size: 1.5em;">🎨</span><br>
+        <strong>GOGHで作業中<br>
+        <span class="gogh-id-highlight">Room ID: 10977524
