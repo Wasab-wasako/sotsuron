@@ -1,11 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>卒論進捗中！</title>
+    <meta charset="UTF-8">
+    <title>卒論執筆ライブ進捗</title>
+    <style>
+        /* 配信画面に映えるダークモード風デザイン */
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            border: 2px solid #333;
+            border-radius: 15px;
+            background: #252525;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        h1 { color: #00ffcc; font-size: 24px; }
+        .gogh-info {
+            background: #333;
+            padding: 10px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #ff007b;
+        }
+        .wakatime-chart {
+            margin-top: 20px;
+            filter: drop-shadow(0 0 5px #00ffcc); /* グラフを少し光らせる */
+        }
+    </style>
 </head>
 <body>
-    <h1>現在、卒論執筆中です！</h1>
-    <p>リスナーの皆さん、応援ありがとうございます。</p>
-    <figure><embed src="https://wakatime.com/share/@rizzle/c5602d4b-5cad-4ed1-97c9-8e997981f711.svg"></embed></figure>
+
+<div class="container">
+    <h1>📝 卒論執筆 リアルタイム進捗</h1>
+    
+    <div class="gogh-info">
+        <strong>現在 GOGH で作業中！</strong><br>
+        ルームID: <span>【ここにあなたのルームIDを書く】</span>
+    </div>
+
+    <div class="wakatime-chart">
+        <h3>📊 今週の執筆量</h3>
+        <figure><embed src="https://wakatime.com/share/@rizzle/c5602d4b-5cad-4ed1-97c9-8e997981f711.svg"></embed></figure>
+    </div>
+
+    <p style="margin-top: 30px; font-size: 14px; color: #888;">
+        ※VS Codeと連携して自動更新されています。応援よろしくお願いします！
+    </p>
+</div>
+
 </body>
 </html>
